@@ -1,0 +1,311 @@
+﻿<style>
+    @@media only screen and (max-width: 1200px) {
+      .slider_image {
+          height: 70vh;
+      }
+    }
+
+    @@media only screen and (max-width: 1500px) {
+        .slider_image {
+            height: 20vh;
+        }
+    }
+
+    @@media only screen and (max-width: 1200px) {
+        .about_main > div:first-of-type {
+            width: 35% !important;
+        }
+        .slider_image {
+            height: 15vw;
+        }
+    }
+
+    @@media only screen and (max-width: 750px) {
+        .about_main > div:first-of-type {
+            width: 50% !important;
+        }
+
+        .slider_image {
+            height: 30vw !important;
+        }
+    }
+
+    .about_main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .red_big_span {
+        font-size: 65px;
+        color: #e34035;
+        font-weight: bold;
+    }
+
+    .counters, .date_counters {
+        display: flex;
+    }
+
+    .counters div {
+        margin: 0 10px;
+    }
+
+    .date_counters div div {
+        margin: 3.5em 10px 0 10px;
+    }
+
+    .date_counters_end_text {
+        margin: 3.5em 0 0 -10px;
+    }
+
+    .slider_image {
+        width: 100%;
+        object-fit: cover;
+        height: 18vw;
+    }
+</style>
+
+<div class="about_main mt-5">
+    <div style="width: 40%">
+        <div style="width: 100%" id="carouselExampleControls" class="carousel slide inverted" data-interval="10000" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img101_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img188_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img185_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img206_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img96_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img99_1.jpg">
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">
+                        <p>
+                            <img class="slider_image" alt="" src="reduced/img97_1.jpg">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div style="margin: 0 25px 25px 25px; width: 55%; color:white">
+        <p style="font-size: 24px">Про нас</p>
+        <p>
+            Магазин «Family Craft» – це завжди найкраще м’ясо та натуральні продукти, які задовольнять смак найвимогливішого гурмана!<br />
+            Наш асортимент приємно вразить навіть найвибагливіших споживачів, і кожен зможе обрати для себе те, що йому потрібно!
+        </p>
+        <div class="date_counters">
+            <div style="display: flex">
+                <span id="years_counter" class="red_big_span">10</span>
+                <div id="years_text">років</div>
+            </div>
+            <div style="display: flex">
+                <span id="months_counter" class="red_big_span">10</span>
+                <div id="months_text">місяців</div>
+            </div>
+            <div style="display: flex">
+                <span id="days_counter" class="red_big_span">10</span>
+                <div id="days_text">днів</div>
+            </div>
+            <div style="display: flex">
+                <span id="hours_counter" class="red_big_span">10</span>
+                <div id="hours_text">годин</div>
+            </div>
+            <div class="date_counters_end_text">
+                &nbspна ринку
+            </div>
+        </div>
+        <div class="counters">
+            <div>
+                <span class="red_big_span"></span>
+                <div>задоволених клієнтів</div>
+            </div>
+            <div>
+                <span class="red_big_span">1</span>
+                <div>фірмовий магазин</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>    
+    //document.getElementById("date_counter").innerHTML =
+    moment.locale('uk-ua')
+
+    let OpenDate = moment([2020, 7 - 1, 28]) // 28.07.2020
+    let NowDate = moment()
+
+    let diff = moment.duration(NowDate.diff(OpenDate))
+
+
+    let years = diff._data.years
+    let years_text = "років";
+    if (years == 1) {
+        years_text = "рік"
+    }
+    else if (years >= 2 && years <= 4) {
+        years_text = "роки"
+    }
+    document.getElementById("years_text").innerHTML = years_text;
+    let y_loop = 0
+    if (years == 0) {
+        document.getElementById("years_counter").parentElement.style = "display: none"
+    }
+    let timeout_y = setInterval(() => {
+        if (y_loop <= years) {
+            document.getElementById("years_counter").innerHTML = y_loop
+            y_loop++
+        }
+        else {
+            clearInterval(timeout_y)
+        }
+    }, 100)
+
+
+
+    let months = diff._data.months
+    let months_text = "місяців";
+    if (months == 1) {
+        years_text = "місяць"
+    }
+    else if (months >= 2 && months <= 4) {
+        months_text = "місяці"
+    }
+    document.getElementById("months_text").innerHTML = months_text;
+    let m_loop = 0
+    if (months == 0) {
+        document.getElementById("months_counter").parentElement.style = "display: none"
+    }
+    let timeout_m = setInterval(() => {
+        if (m_loop <= months) {
+            document.getElementById("months_counter").innerHTML = m_loop
+            m_loop++
+        }
+        else {
+            clearInterval(timeout_m)
+        }
+    }, 100)
+
+
+    let days = diff._data.days
+    let days_text = "днів";
+    let days_string = days.toString()[days.toString().length - 1] - 1 + 1;
+    if (days_string == 1 && days.toString().length != 2) {
+        days_text = "день";
+    }
+    else if (days_string >= 2 && days_string <= 4 && days.toString().length != 2) {
+        days_text = "дні";
+    }
+    document.getElementById("days_text").innerHTML = days_text;
+    let d_loop = 0
+    if (days == 0) {
+        document.getElementById("days_counter").parentElement.style = "display: none"
+    }
+    let timeout_d = setInterval(() => {
+        if (d_loop <= days) {
+            document.getElementById("days_counter").innerHTML = d_loop
+            d_loop++
+        }
+        else {
+            clearInterval(timeout_d)
+        }
+    }, 100)
+
+
+
+    let hours = diff._data.hours
+    let hours_text = "годин";
+    let hours_string = hours.toString()[hours.toString().length - 1] - 1 + 1;
+    if (hours_string == 1 && hours.toString().length != 2) {
+        hours_text = "година";
+    }
+    else if (hours_string >= 2 && hours_string >= 4 && hours.toString().length != 2) {
+        hours_text = "години";
+    }
+    document.getElementById("hours_text").innerHTML = hours_text;
+    let h_loop = 0
+    if (hours == 0) {
+        document.getElementById("hours_counter").parentElement.style = "display: none"
+    }
+    let timeout_h = setInterval(() => {
+        if (h_loop <= hours) {
+            document.getElementById("hours_counter").innerHTML = h_loop
+            h_loop++
+        }
+        else {
+            clearInterval(timeout_h)
+        }
+    }, 100)
+
+    function count(){
+        let num_2 = @SettingsManager.GetValue("ClientsCount");
+        let num_3 = 1
+
+        let num_2_loop = @SettingsManager.GetValue("ClientsCount") - 200
+        let num_3_loop = 0
+
+        let num_2_step = 10
+        let num_3_step = 100
+
+        let timeout2 = setInterval(() => {
+            if(num_2_loop <= num_2){
+                document.querySelectorAll(".counters .red_big_span")[0].innerHTML = num_2_loop
+                num_2_loop++
+            }
+            else {
+                clearInterval(timeout2)
+            }
+        }, num_2_step)
+
+        let timeout3 = setInterval(() => {
+            if(num_3_loop <= num_3){
+                document.querySelectorAll(".counters .red_big_span")[1].innerHTML = num_3_loop
+                num_3_loop++
+            }
+            else {
+                clearInterval(timeout3)
+            }
+        }, num_3_step)
+    }
+    count()
+</script>

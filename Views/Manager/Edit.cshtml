@@ -1,0 +1,41 @@
+﻿@model MenuItem
+
+@{ 
+    int DarkTheme = int.Parse(SettingsManager.GetValue("DarkTheme"));
+}
+
+<div class="admin_container">
+    <partial name="MenuBar" />
+
+    <div class="admin_main">
+        <h2>Изменение @Model.Name</h2>
+
+        <script src="ckeditor/ckeditor.js"></script>
+        <script src="ckeditor/samples/js/sample.js"></script>
+        <link rel="stylesheet" href="ckeditor/samples/css/samples.css">
+        <link rel="stylesheet" href="ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
+
+        @if(DarkTheme == 1)
+        {
+            <style>
+                .cke_editable {
+                    background: #000;
+                }
+            </style>
+        }
+        <form asp-action="Edit" method="post">
+            <input type="hidden" name="MenuItemId" value="@Model.Id" />
+            <div class="centered">
+                <div class="row row-editor inverted">
+                    <textarea name="Content" id="editor">
+                        @Html.Raw(Model.Content)
+                    </textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+    <script>
+        initSample();
+    </script>
+</div>
