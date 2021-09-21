@@ -72,6 +72,10 @@
                 @CurrentProduct.Name
             }
         </h5>
+        @if (ShowVendorCodeInProductCard)
+        {
+            <p class="card__vendor-code">Артикул: @CurrentProduct.VendorCode</p>
+        }
         @if (ShowDescriptionInProductCard)
         {
             <p class="card-text">@CurrentProduct.Description</p>
