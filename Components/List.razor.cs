@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
 using ShopWeb.Models;
+using ShopWeb.Shared;
+
 using ShopWebData;
 using System;
 using System.Collections.Generic;

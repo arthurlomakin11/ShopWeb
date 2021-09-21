@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopWeb.Models;
+using ShopWeb.Shared;
 
 namespace ShopWeb.Controllers
 {

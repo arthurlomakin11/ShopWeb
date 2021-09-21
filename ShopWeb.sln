@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopWeb", "ShopWeb.csproj",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopWebData", "..\ShopWebData\ShopWebData.csproj", "{C8DB58F1-72FF-4B21-9134-8BBA21056E6E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopWeb.Shared", "..\ShopWeb.Shared\ShopWeb.Shared.csproj", "{D663717B-47D0-4DB4-AE20-6E549AF2A752}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C8DB58F1-72FF-4B21-9134-8BBA21056E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8DB58F1-72FF-4B21-9134-8BBA21056E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8DB58F1-72FF-4B21-9134-8BBA21056E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D663717B-47D0-4DB4-AE20-6E549AF2A752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D663717B-47D0-4DB4-AE20-6E549AF2A752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D663717B-47D0-4DB4-AE20-6E549AF2A752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D663717B-47D0-4DB4-AE20-6E549AF2A752}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components;
 using ShopWeb.Models;
 
 using ShopWebData;
+using ShopWeb.Shared;
 
 namespace ShopWeb.Components
 {
@@ -22,6 +23,8 @@ namespace ShopWeb.Components
         readonly bool CanUserBuyProducts = SettingsManager.GetValueBool("CanUserBuyProducts");
         readonly bool ShowMultipleImagesInProduct = SettingsManager.GetValueBool("ShowMultipleImagesInProduct");
         readonly string InCartButtonTextInProduct = SettingsManager.GetValue("InCartButtonTextInProduct");
+        readonly bool ShowIsAvailableTextInProduct = SettingsManager.GetValueBool("ShowIsAvailableTextInProduct");
+        readonly bool AllProductsIsAvailable = SettingsManager.GetValueBool("AllProductsIsAvailable");
         bool InCart = false;
 
         protected override async void OnParametersSet()
@@ -52,6 +55,7 @@ namespace ShopWeb.Components
             {
                 CurrentCart = LocalCart;
             }
+
 
             if (CurrentCart != null)
             {

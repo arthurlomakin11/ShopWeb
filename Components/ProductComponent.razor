@@ -77,6 +77,10 @@
             <p class="card-text">@CurrentProduct.Description</p>
         }        
         <p class="card-text">
+            @if (ShowIsAvailableTextInProduct && !CurrentProduct.IsAvailable)
+            {
+                <div class="card__is-available-text">Товару немає в наявності</div>   
+            }
             @if(CurrentProduct.DollarsPrice > 0)
             {
                 @(CurrentProduct.DollarsPrice.ToString("G29") + "$")
@@ -86,7 +90,7 @@
                 @(CurrentProduct.Price.ToString("G29") + " грн")
             }
         </p>
-        @if(CanUserBuyProducts)
+        @if(AllProductsIsAvailable || (CanUserBuyProducts && CurrentProduct.IsAvailable))
         {
             @if (!InCart)
             {

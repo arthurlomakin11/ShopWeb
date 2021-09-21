@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 
 using ShopWeb.Models;
+using ShopWeb.Shared;
 
 using ShopWebData;
 using System;

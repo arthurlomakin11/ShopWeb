@@ -65,6 +65,10 @@
         </div>
     }
     <h5 class="product__name">@CurrentProduct.Name</h5>
+    @if (ShowIsAvailableTextInProduct && !CurrentProduct.IsAvailable)
+    {
+        <div class="card__is-available-text">Товару немає в наявності</div>   
+    }
     <div class="product__right">
         <p class="product__price">
             @if(CurrentProduct.DollarsPrice > 0)
@@ -76,7 +80,7 @@
                 @(CurrentProduct.Price.ToString("G29") + " грн")
             }
         </p>
-        @if(CanUserBuyProducts)
+        @if(AllProductsIsAvailable || (CanUserBuyProducts && CurrentProduct.IsAvailable))
         {
             @if (!InCart)
             {

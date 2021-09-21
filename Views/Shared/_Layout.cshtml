@@ -49,6 +49,8 @@
     ViewData["MenuItem"] = StatisticsManager.MenuItem;
     ViewData["MenuItemName"] = StatisticsManager.MenuItemName;
     StatisticsManager.WriteStatistics(Context);
+    
+
 }
 
 
@@ -67,9 +69,9 @@
     <partial name="Scripts" />
     <partial name="Styles" />
 </head>
-<body>        
-    <header>
-        
+<body>
+    @Html.Raw(BodyStartHtml)
+    <header>        
         <partial name="Menu" model="menu" />
         @if (!ProductsMenuInSeparatePage)
         {

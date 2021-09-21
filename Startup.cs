@@ -8,13 +8,10 @@ using System;
 using ShopWebData;
 using System.IO;
 using Newtonsoft.Json.Linq;
-using Microsoft.AspNetCore.DataProtection;
-using System.Globalization;
 using ShopWeb.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Blazored.LocalStorage;
-using System.Linq;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace ShopWeb
 {
@@ -48,7 +45,7 @@ namespace ShopWeb
             ShopWebContext.ConnectionString = ConnectionString;
 
             services.AddDataProtection()
-                .PersistKeysToFileSystem(new DirectoryInfo("\\keys\\"));
+                .PersistKeysToDbContext<ShopWebContext>();
 
             services.AddDbContext<ShopWebContext>();
 

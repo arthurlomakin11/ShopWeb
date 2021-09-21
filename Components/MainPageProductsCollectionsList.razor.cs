@@ -2,6 +2,8 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ShopWeb.Models;
+using ShopWeb.Shared;
+
 using ShopWebData;
 
 namespace ShopWeb.Components

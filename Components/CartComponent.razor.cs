@@ -1,4 +1,6 @@
 ﻿using ShopWeb.Models;
+using ShopWeb.Shared;
+
 using ShopWebData;
 using System.Threading.Tasks;
 

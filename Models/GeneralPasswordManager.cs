@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopWeb.Shared;
+
+using System;
 using System.Text;
 
 namespace ShopWeb.Models

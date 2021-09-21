@@ -7,6 +7,7 @@ using DynamicExpresso;
 using ShopWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Policy;
+using ShopWeb.Shared;
 
 namespace ShopWeb.Controllers
 {

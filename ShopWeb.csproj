@@ -13,6 +13,7 @@
     <PackageReference Include="Flurl" Version="3.0.2" />
     <PackageReference Include="FormHelper" Version="4.0.1" />
     <PackageReference Include="jQuery" Version="3.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.4" />
@@ -35,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopWeb.Shared\ShopWeb.Shared.csproj" />
     <ProjectReference Include="..\ShopWebData\ShopWebData.csproj" />
   </ItemGroup>
 

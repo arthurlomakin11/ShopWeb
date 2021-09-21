@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+
+using ShopWeb.Shared;
+
 using ShopWebData;
 using System;
 using System.Linq;

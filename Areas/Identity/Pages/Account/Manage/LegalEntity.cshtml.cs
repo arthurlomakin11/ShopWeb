@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ShopWeb.Models;
+using ShopWeb.Shared;
+
 using ShopWebData;
 
 namespace ShopWeb.Areas.Identity.Pages.Account.Manage
@@ -29,13 +31,13 @@ namespace ShopWeb.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Display(Name = "Юридична особа")]
+            [Display(Name = "Р„ СЋСЂРёРґРёС‡РЅРѕСЋ РѕСЃРѕР±РѕСЋ")]
             public bool IsLegalEntity { get; set; }
 
-            [Display(Name = "Назва організації")]
+            [Display(Name = "РќР°Р·РІР° РѕСЂРіР°РЅС–Р·Р°С†С–С—")]
             public string OrganizationName { get; set; }
 
-            [Display(Name = "ЄДРПОУ")]
+            [Display(Name = "Р„Р”Р РџРћРЈ")]
             public string LegalEntityID { get; set; }
         }
 
@@ -59,7 +61,7 @@ namespace ShopWeb.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Не вдається завантажити користувача з ідентифікатором '{_userManager.GetUserId(User)}'.");
+                return NotFound($"РџРѕРјРёР»РєР° '{_userManager.GetUserId(User)}'.");
             }
 
             Load(user);
@@ -77,7 +79,7 @@ namespace ShopWeb.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Не вдається завантажити користувача з ідентифікатором '{_userManager.GetUserId(User)}'.");
+                return NotFound($"РџРѕРјРёР»РєР° '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -103,7 +105,7 @@ namespace ShopWeb.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.UserManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Ваш профіль був оновлений";
+            StatusMessage = "РџРѕРјРёР»РєР°";
             return RedirectToPage();
         }
     }

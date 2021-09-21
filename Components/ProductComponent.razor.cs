@@ -4,6 +4,7 @@ using System.Linq;
 using ShopWeb.Models;
 using System;
 using System.Collections.Generic;
+using ShopWeb.Shared;
 
 namespace ShopWeb.Components
 {
@@ -22,6 +23,8 @@ namespace ShopWeb.Components
         readonly bool ShowMultipleImagesInProduct = SettingsManager.GetValueBool("ShowMultipleImagesInProduct");
         readonly bool ShowProductPageLinkInProductCard__Name = SettingsManager.GetValueBool("ShowProductPageLinkInProductCard__Name");
         readonly string InCartButtonTextInProduct = SettingsManager.GetValue("InCartButtonTextInProduct");
+        readonly bool ShowIsAvailableTextInProduct = SettingsManager.GetValueBool("ShowIsAvailableTextInProduct");
+        readonly bool AllProductsIsAvailable = SettingsManager.GetValueBool("AllProductsIsAvailable");
         bool InCart = false;     
 
         protected override async void OnParametersSet()
@@ -52,7 +55,7 @@ namespace ShopWeb.Components
                 CurrentCart = LocalCart;
             }
 
-            if(CurrentCart != null)
+            try
             {
                 PortionsCount = CurrentCart.CartItems.Count(product => product.Product.Id == CurrentProduct.Id);
                 if (PortionsCount > 0)
@@ -61,6 +64,7 @@ namespace ShopWeb.Components
                     StateHasChanged();
                 }
             }
+            catch { }
 
             base.OnParametersSet();
         }

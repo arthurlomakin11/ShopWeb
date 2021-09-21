@@ -4,6 +4,7 @@ using ShopWebData;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using ShopWeb.Models;
+using ShopWeb.Shared;
 
 namespace ShopWeb.Controllers
 {
