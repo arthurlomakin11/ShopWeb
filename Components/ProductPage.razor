@@ -80,6 +80,10 @@
                 @(CurrentProduct.Price.ToString("G29") + " грн")
             }
         </p>
+        @if (ShowVendorCodeInProductCard)
+        {
+            <p class="card__vendor-code">Артикул: @CurrentProduct.VendorCode</p>
+        }
         @if(AllProductsIsAvailable || (CanUserBuyProducts && CurrentProduct.IsAvailable))
         {
             @if (!InCart)
