@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 using ShopWeb.Shared;
 
-using ShopWebData;
+using ShopWeb.Data;
 using System;
 using System.Linq;
 

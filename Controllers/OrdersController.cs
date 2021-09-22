@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using ShopWebData;
+using ShopWeb.Data;
 using ShopWeb.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using ShopWeb.Models;

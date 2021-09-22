@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Controllers
 {

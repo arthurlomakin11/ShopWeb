@@ -3,7 +3,7 @@
 using ShopWeb.Models;
 using ShopWeb.Shared;
 
-using ShopWebData;
+using ShopWeb.Data;
 using System;
 
 namespace ShopWeb.Components

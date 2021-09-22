@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Areas.Identity.Pages.Account
 {

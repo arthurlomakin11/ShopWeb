@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using ShopWebData;
+using ShopWeb.Data;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using ShopWeb.ViewModels;

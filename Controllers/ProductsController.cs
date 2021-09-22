@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using ShopWebData;
+using ShopWeb.Data;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using ShopWeb.Models;

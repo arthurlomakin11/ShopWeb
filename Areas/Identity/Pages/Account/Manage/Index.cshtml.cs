@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Areas.Identity.Pages.Account.Manage
 {

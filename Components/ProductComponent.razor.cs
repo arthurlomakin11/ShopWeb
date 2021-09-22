@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using ShopWebData;
+using ShopWeb.Data;
 using System.Linq;
 using ShopWeb.Models;
 using System;

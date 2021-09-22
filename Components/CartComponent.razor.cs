@@ -1,7 +1,7 @@
 ﻿using ShopWeb.Models;
 using ShopWeb.Shared;
 
-using ShopWebData;
+using ShopWeb.Data;
 using System.Threading.Tasks;
 
 namespace ShopWeb.Components

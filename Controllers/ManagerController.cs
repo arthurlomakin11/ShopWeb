@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShopWebData;
+using ShopWeb.Data;
 using System.Linq;
 using System.Threading.Tasks;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShopWebData;
+using ShopWeb.Data;
 using System.Linq;
 
 namespace ShopWeb.Controllers

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Models
 {

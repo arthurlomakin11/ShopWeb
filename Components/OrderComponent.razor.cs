@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using ShopWeb.Models;
 
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Components
 {

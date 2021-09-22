@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -37,7 +37,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopWeb.Shared\ShopWeb.Shared.csproj" />
-    <ProjectReference Include="..\ShopWebData\ShopWebData.csproj" />
+    <ProjectReference Include="..\ShopWebData\ShopWeb.Data.csproj" />
   </ItemGroup>
 
 </Project>

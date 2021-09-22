@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 using ShopWeb.Models;
 
-using ShopWebData;
+using ShopWeb.Data;
 using ShopWeb.Shared;
 
 namespace ShopWeb.Components

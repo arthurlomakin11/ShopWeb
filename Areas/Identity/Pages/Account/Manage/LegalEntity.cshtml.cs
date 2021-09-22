@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ShopWeb.Models;
 using ShopWeb.Shared;
 
-using ShopWebData;
+using ShopWeb.Data;
 
 namespace ShopWeb.Areas.Identity.Pages.Account.Manage
 {
