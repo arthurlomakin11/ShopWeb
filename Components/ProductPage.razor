@@ -84,7 +84,7 @@
         {
             <p class="card__vendor-code">Артикул: @CurrentProduct.VendorCode</p>
         }
-        @if(AllProductsIsAvailable || (CanUserBuyProducts && CurrentProduct.IsAvailable))
+        @if(CanUserBuyProducts && (AllProductsIsAvailable || CurrentProduct.IsAvailable))
         {
             @if (!InCart)
             {

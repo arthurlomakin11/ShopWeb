@@ -36,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopWeb.Localization\ShopWeb.Localization.csproj" />
     <ProjectReference Include="..\ShopWeb.Shared\ShopWeb.Shared.csproj" />
     <ProjectReference Include="..\ShopWebData\ShopWeb.Data.csproj" />
   </ItemGroup>

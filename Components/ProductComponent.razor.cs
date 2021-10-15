@@ -26,7 +26,7 @@ namespace ShopWeb.Components
         readonly bool ShowIsAvailableTextInProduct = SettingsManager.GetValueBool("ShowIsAvailableTextInProduct");
         readonly bool AllProductsIsAvailable = SettingsManager.GetValueBool("AllProductsIsAvailable");
         readonly bool ShowVendorCodeInProductCard = SettingsManager.GetValueBool("ShowVendorCodeInProductCard");
-        bool InCart = false;     
+        bool InCart = false;
 
         protected override async void OnParametersSet()
         {

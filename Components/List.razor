@@ -1,6 +1,7 @@
 ﻿@inject ILocalStorageService LocalStorage
 @inject ShopWebContext Context
 @inject SignInManager<User> SignInManager
+@inject IViewLocalizer Localizer
 
 <link rel="stylesheet" href="css/products.css" />
 
@@ -20,6 +21,7 @@
     <input class="products_search_input form-control col-lg-3 mt-2" @bind="SearchText" @bind:event="oninput" />
 }
 
+@Localizer["string"]
 @if (!string.IsNullOrWhiteSpace(SearchText))
 {
     List<Product> SearchList = ProductsSearchList();

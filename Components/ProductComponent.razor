@@ -94,7 +94,7 @@
                 @(CurrentProduct.Price.ToString("G29") + " грн")
             }
         </p>
-        @if(AllProductsIsAvailable || (CanUserBuyProducts && CurrentProduct.IsAvailable))
+        @if(CanUserBuyProducts && (AllProductsIsAvailable || CurrentProduct.IsAvailable))
         {
             @if (!InCart)
             {

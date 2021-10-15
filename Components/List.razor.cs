@@ -55,7 +55,7 @@ namespace ShopWeb.Components
         {
             if (!string.IsNullOrWhiteSpace(SearchText))
             {
-                return Context.Products
+                return new ShopWebContext().Products
                 .Where(product =>
                     product.Name.Trim().Contains(SearchText.Trim()) ||
                     product.Description.Trim().Contains(SearchText.Trim()) ||
@@ -66,6 +66,7 @@ namespace ShopWeb.Components
                         StringExtensions.Translate(SearchText.Trim(), "А", "A")
                     )
                 )
+                .Where(product => product.Active == true)
                 .Include(p => p.Images)
                 .ToList();
             }
