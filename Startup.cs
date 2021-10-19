@@ -12,12 +12,9 @@ using ShopWeb.ViewModels;
 using Blazored.LocalStorage;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Http.Connections;
-using System.Collections.Generic;
-using System.Globalization;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
 
 namespace ShopWeb
 {
@@ -68,10 +65,27 @@ namespace ShopWeb
             .AddErrorDescriber<CustomIdentityErrorDescriber>()
             .AddDefaultUI();
 
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+
+                CultureInfo[] supportedCultures = new[]
+{
+                    new CultureInfo("uk-UA"),
+                    new CultureInfo("ru-RU"),
+                    new CultureInfo("en-US")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("uk-UA");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
             services.AddAuthentication();
             services.AddAuthorization();
 
-            services.AddRazorPages().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization(); ;                
+
+            services.AddRazorPages();
+
 
             services.AddServerSideBlazor();
 
@@ -79,9 +93,13 @@ namespace ShopWeb
                 e.MaximumReceiveMessageSize = null;
             });
 
-            services.AddControllers().AddJsonOptions(options =>
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.AddControllers()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddJsonOptions(options =>
             {
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;                
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
             });
 
             services.Configure<IdentityOptions>(options =>
@@ -103,23 +121,6 @@ namespace ShopWeb
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
-            });
-
-
-            services.AddLocalization(opt =>
-            {
-                opt.ResourcesPath = "Resources";
-            });
-
-            List<CultureInfo> supportedCultures = new()
-            {
-                new CultureInfo("uk"),
-                new CultureInfo("ru"),
-            };
-            services.Configure<RequestLocalizationOptions>(options => {
-                options.DefaultRequestCulture = new RequestCulture("uk");
-                options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;
             });
         }
         
@@ -144,7 +145,8 @@ namespace ShopWeb
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
-            
+
+            app.UseRequestLocalization();
 
             app.UseRouting();
 
@@ -188,7 +190,7 @@ namespace ShopWeb
                 (
                     name: "roles",
                     pattern: "Roles/{action}",
-                    defaults: new { controller = "Roles", action = "Index"}
+                    defaults: new { controller = "Roles", action = "Index" }
                 );
                 endpoints.MapControllerRoute
                 (
@@ -226,10 +228,7 @@ namespace ShopWeb
                 endpoints.MapRazorPages();
 
                 endpoints.MapBlazorHub();
-            });
-
-            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(options.Value);
+            });                       
         }
     }
 }

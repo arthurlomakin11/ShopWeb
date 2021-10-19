@@ -3,7 +3,7 @@
 @{
     ShopWebContext context = new ShopWebContext();
 
-    int ShowMainPageLink = int.Parse(SettingsManager.GetValue("ShowMainPageLink"));
+    bool ShowMainPageLink = SettingsManager.GetValueBool("ShowMainPageLink");
 
     bool RedirectUriBool = string.IsNullOrWhiteSpace(SettingsManager.GetValue("RedirectUri"));
     string RedirectUriMain = RedirectUriBool ? "Головна" : "";
@@ -18,7 +18,9 @@
     string MenuHtmlAfterCollapseButton = SettingsManager.GetValue("MenuHtmlAfterCollapseButton");
 
 
-    int CanUserBuyProducts = int.Parse(SettingsManager.GetValue("CanUserBuyProducts"));
+    bool CanUserBuyProducts = SettingsManager.GetValueBool("CanUserBuyProducts");
+
+    bool HasMultipleLanguages = SettingsManager.GetValueBool("HasMultipleLanguages");
 }
 
 
@@ -34,7 +36,7 @@
     @Html.Raw(MenuHtmlAfterCollapseButton)
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
         <ul class="navbar-nav flex-grow-1">
-            @if (ShowMainPageLink == 1)
+            @if (ShowMainPageLink)
             {
                 <li class="nav-item">
                     <a asp-area="" asp-controller="Main" asp-action="Main"
@@ -79,9 +81,13 @@
                 </li>
             }
         </ul>
-        @if(CanUserBuyProducts == 1)
+        @if(CanUserBuyProducts)
         {
             <partial name="_LoginPartial" />   
+        }
+        @if (HasMultipleLanguages)
+        {
+            <partial name="_SelectLanguagePartial" />
         }
     </div>
 </nav>

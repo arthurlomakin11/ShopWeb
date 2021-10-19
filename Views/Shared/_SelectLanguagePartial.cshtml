@@ -1,0 +1,37 @@
+﻿@inject IOptions<RequestLocalizationOptions> LocalizationOptions
+ 
+@{
+    string ImagesFolderLocalPath = SettingsManager.GetValue("ImagesFolderLocalPath");
+
+    var RequestCulture = Context.Features.Get<IRequestCultureFeature>();
+    
+    string CurrentCultureName = RequestCulture.RequestCulture.Culture.Name;
+
+    List<SelectListItem> cultureItems = LocalizationOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.NativeName })
+        .ToList();
+
+    List<Language> SupportedLanguages = new ShopWebContext().Languages.ToList();
+}
+ 
+<form asp-controller="Home" asp-action="SetLanguage" class="nav__language-selector form-horizontal"
+      asp-route-returnUrl="@Context.Request.Path"
+      method="post">
+    <select class="nav__language-selector__select form-control" onchange="this.form.submit()">
+        @foreach(Language Language in SupportedLanguages)
+        {
+            @if(Language.Name == CurrentCultureName)
+            {
+                <option value="@Language.Name" selected>
+                    <img src="@ImagesFolderLocalPath/@Language.ImagePath" />
+                </option>
+            }
+            else
+            {
+                <option value="@Language.Name">
+                    <img src="@ImagesFolderLocalPath/@Language.ImagePath" />
+                </option>
+            }
+        }
+    </select>
+</form>
