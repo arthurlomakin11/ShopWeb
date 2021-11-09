@@ -13,8 +13,9 @@ using Blazored.LocalStorage;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Http;
 
 namespace ShopWeb
 {
@@ -95,12 +96,13 @@ namespace ShopWeb
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services.AddControllers()
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+            services.AddControllersWithViews()
+                .AddDataAnnotationsLocalization()
+                .AddViewLocalization()
                 .AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-            });
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                });
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -121,6 +123,14 @@ namespace ShopWeb
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
+            });
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies 
+                // is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
         }
         
@@ -146,7 +156,8 @@ namespace ShopWeb
 
             app.UseStaticFiles();
 
-            app.UseRequestLocalization();
+            IOptions<RequestLocalizationOptions> LocalizationOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(LocalizationOptions.Value);
 
             app.UseRouting();
 
@@ -219,6 +230,12 @@ namespace ShopWeb
                 );
                 endpoints.MapControllerRoute
                 (
+                    name: "additional",
+                    pattern: "/Additional/{action}",
+                    defaults: new { controller = "Additional", action = "SetLanguage" }
+                );
+                endpoints.MapControllerRoute
+                (
                     name: "default",
                     pattern: "{MenuName?}/{SubMenuName?}",
                     defaults: new { controller = "Main", action = "Main" }
@@ -228,7 +245,7 @@ namespace ShopWeb
                 endpoints.MapRazorPages();
 
                 endpoints.MapBlazorHub();
-            });                       
+            });
         }
     }
 }

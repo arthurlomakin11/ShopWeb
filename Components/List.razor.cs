@@ -7,11 +7,14 @@ using ShopWeb.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.JSInterop;
 
 namespace ShopWeb.Components
 {
     public partial class List
     {
+        [Inject]
+        IJSRuntime JSRuntime { get; set; }
         readonly string ProductsDefaultSortType = SettingsManager.GetValue("ProductsDefaultSortType");
         readonly bool ShowSorting = SettingsManager.GetValueBool("ShowSorting");
         readonly bool ProductsSearchEnabled = SettingsManager.GetValueBool("ProductsSearchEnabled");
@@ -90,5 +93,19 @@ namespace ShopWeb.Components
             }
         }
         public int ActivePage { get; set; } = 0;
+
+        public void GetToPreviousPage()
+        {
+            GetToActivePage(ActivePage - 1);
+        }
+        public void GetToNextActivePage()
+        {
+            GetToActivePage(ActivePage + 1);
+        }
+        public void GetToActivePage(int PageNumber)
+        {
+            ActivePage = PageNumber;
+            await JSRuntime.InvokeVoidAsync("displayTickerAlert1");
+        }
     }
 }

@@ -1,9 +1,5 @@
 ﻿@model MenuItem
 
-@{ 
-    int DarkTheme = int.Parse(SettingsManager.GetValue("DarkTheme"));
-}
-
 <div class="admin_container">
     <partial name="MenuBar" />
 
@@ -15,14 +11,6 @@
         <link rel="stylesheet" href="ckeditor/samples/css/samples.css">
         <link rel="stylesheet" href="ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
 
-        @if(DarkTheme == 1)
-        {
-            <style>
-                .cke_editable {
-                    background: #000;
-                }
-            </style>
-        }
         <form asp-action="Edit" method="post">
             <input type="hidden" name="MenuItemId" value="@Model.Id" />
             <div class="centered">

@@ -21,7 +21,6 @@
     <input class="products_search_input form-control col-lg-3 mt-2" @bind="SearchText" @bind:event="oninput" />
 }
 
-<p>@Localizer["string"]</p>
 @if (!string.IsNullOrWhiteSpace(SearchText))
 {
     List<Product> SearchList = ProductsSearchList();
@@ -111,7 +110,7 @@ else
                         @if (!ReducedPagesList.Contains(0))
                         {
                             <li class="page-item">
-                                <button class="page-link" aria-label="Previous" @onclick="() => ActivePage--">
+                                <button class="page-link" aria-label="Previous" @onclick="GetToPreviousPage">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
@@ -120,13 +119,13 @@ else
                         @foreach(int PageNumber in ReducedPagesList)
                         {
                             <li class="page-item @(ActivePage == PageNumber ? "active": "")">
-                                <button class="page-link" @onclick="() => ActivePage = PageNumber">@(PageNumber + 1)</button>
+                                <button class="page-link" @onclick="() => GetToActivePage(PageNumber)">@(PageNumber + 1)</button>
                             </li>
                         }
                         @if (!ReducedPagesList.Contains(MaxPageNumber))
                         {
                             <li class="page-item">
-                                <button class="page-link" aria-label="Next" @onclick="() => ActivePage++">
+                                <button class="page-link" aria-label="Next" @onclick="GetToNextActivePage()">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>
